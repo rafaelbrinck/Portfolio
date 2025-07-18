@@ -1,0 +1,18 @@
+<div class="area-fundo flex items-center justify-center">
+    <app-skills *ngIf="mostrarSkills == true"  (fechar)="fecharSkills()"/>
+
+    <div class="row fixed left-0 top-0 w-20 h-60 flex items-center justify-around flex-col gap-3 mt-1 ml-1">
+        <div class="col-start-12 cursor-pointer w-full h-20 flex items-center justify-center flex-col gap-0.5 hover:text-cyan-900">
+            <i class="bi bi-browser-chrome text-4xl mb-1"></i>
+            <label class="text-sm">Sobre</label>
+        </div>
+        <div class="col-start-12 cursor-pointer w-full h-20 flex items-center justify-center flex-col gap-0.5 hover:text-cyan-900" (click)="abrirSkills()">
+            <i class="bi bi-clipboard-data-fill text-4xl mb-1"></i>
+            <label class="text-sm">Habilidades</label>
+        </div>
+        <div class="col-start-12 cursor-pointer w-full h-20 flex items-center justify-center flex-col gap-0.5 hover:text-cyan-900">
+            <i class="bi bi-broadcast-pin text-4xl mb-1"></i>
+            <label class="text-sm">Projetos</label>
+        </div>
+    </div>
+</div>
