@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 body {
-  background-image: url("./app/assets/bg/windows_xp.jpg");
+  background-image: url("assets/bg/windows_xp.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
