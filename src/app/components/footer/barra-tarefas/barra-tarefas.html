@@ -15,12 +15,6 @@
             <i class="bi bi-clipboard-data-fill text-xl mb-1"></i>
         </div>
 
-
-        <!-- <div class="habilidades h-10 w-12 flex items-center justify-center hover:bg-gray-600 hover:border-b-4 cursor-pointer border-b-2 border-amber-50 box-border" (click)="abrirSkill()" *ngIf="mostrarSkils">
-            <i class="bi bi-clipboard-data-fill text-xl mb-1 text-white"></i>
-        </div> -->
-
-
         <!-- Projetos -->
         <div class="habilidades h-10 w-12 flex items-center justify-center cursor-pointer box-border border-amber-50 text-white hover:bg-gray-600 hover:border-b-6"
         [class.border-b-4]="mostrarProjeto">
@@ -28,6 +22,22 @@
         </div>
     </div>
 
+    <!-- Icones -->
+     <div class="text-white absolute right-20 flex justify-center items-center h-full p-2">
+        <div class="h-10 p-2 hover:bg-gray-600">
+            <i class="bi bi-battery-half"></i>
+        </div>
+        <div class="h-10 p-2 hover:bg-gray-600">
+            <i class="bi bi-reception-4"></i>
+        </div>
+        <div class="h-10 p-2 hover:bg-gray-600">
+            <i class="bi bi-volume-up"></i>
+        </div>
+     </div>
+
+    <!-- Relógio -->
+    <app-relogio/>
+    
     <!--Fechar tudo-->
     <div class="w-3 h-full hover:bg-gray-900 hover:border-gray-900 absolute right-0 cursor-pointer border-l-2 border-gray-600" (click)="fecharTudo()"></div>
 </div>

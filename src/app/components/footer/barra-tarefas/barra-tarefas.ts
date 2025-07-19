@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ModalSkill } from '../../../services/modal-skill';
 import { CommonModule } from '@angular/common';
 import { ModalSobre } from '../../../services/modal-sobre';
+import { Relogio } from '../relogio/relogio';
 
 @Component({
   selector: 'app-barra-tarefas',
-  imports: [CommonModule],
+  imports: [CommonModule, Relogio],
   templateUrl: './barra-tarefas.html',
   styleUrl: './barra-tarefas.css',
 })
