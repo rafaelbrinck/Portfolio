@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ModalSkill } from '../../../services/modal-skill';
 import { Info } from '../pages/info/info';
 import { ModalSobre } from '../../../services/modal-sobre';
+import { IconsSegPlano } from '../../../services/icons-seg-plano';
 
 @Component({
   selector: 'app-area-trabalho',
@@ -16,10 +17,12 @@ export class AreaTrabalho implements OnInit {
   minimSkills: boolean = false;
 
   mostrarSobre: boolean = false;
+  mostrarIcons: boolean = false;
 
   constructor(
     @Inject(ModalSkill) private modalSkill: ModalSkill,
-    private modalSobre: ModalSobre
+    private modalSobre: ModalSobre,
+    private modalIcons: IconsSegPlano
   ) {}
   ngOnInit() {
     this.modalSkill.mostrarSkills$.subscribe(
@@ -28,6 +31,9 @@ export class AreaTrabalho implements OnInit {
     this.modalSobre.mostrarSobre$.subscribe(
       (value) => (this.mostrarSobre = value)
     );
+    this.modalIcons.mostrarIcons$.subscribe((value) => {
+      this.mostrarIcons = value;
+    });
   }
 
   abrirSkills() {
@@ -42,5 +48,8 @@ export class AreaTrabalho implements OnInit {
       this.modalSkill.toggle();
     }
     this.modalSobre.toggle();
+  }
+  abrirIcons() {
+    this.modalIcons.toogle();
   }
 }

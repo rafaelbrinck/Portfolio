@@ -1,3 +1,4 @@
+
 <div class="barra-tarefas fixed bottom-0 w-full h-10 flex bg-gray-700">
     <div class="botao h-10 w-12 flex items-center justify-center text-white hover:bg-gray-600 cursor-pointer">
         <i class="bi bi-windows"></i>
@@ -22,8 +23,14 @@
         </div>
     </div>
 
+
     <!-- Icones -->
      <div class="text-white absolute right-20 flex justify-center items-center h-full p-2">
+        <div class="p-2 hover:bg-gray-600" (click)="toogleIcons()">
+            <i class="bi"
+            [class.bi-caret-up]="!mostrarIcon"
+            [class.bi-caret-down-fill]="mostrarIcon"></i>
+        </div>
         <div class="h-10 p-2 hover:bg-gray-600">
             <i class="bi bi-battery-half"></i>
         </div>

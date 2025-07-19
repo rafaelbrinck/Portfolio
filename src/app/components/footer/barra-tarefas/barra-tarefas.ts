@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ModalSkill } from '../../../services/modal-skill';
 import { CommonModule } from '@angular/common';
 import { ModalSobre } from '../../../services/modal-sobre';
 import { Relogio } from '../relogio/relogio';
+import { IconsSegPlano } from '../../../services/icons-seg-plano';
 
 @Component({
   selector: 'app-barra-tarefas',
@@ -16,8 +17,13 @@ export class BarraTarefas implements OnInit {
 
   mostrarSobre: boolean = false;
   mostrarProjeto: boolean = false;
+  mostrarIcon: boolean = false;
 
-  constructor(private modalSkill: ModalSkill, private modalSobre: ModalSobre) {}
+  constructor(
+    private modalSkill: ModalSkill,
+    private modalSobre: ModalSobre,
+    private modalIcon: IconsSegPlano
+  ) {}
 
   ngOnInit(): void {
     this.modalSkill.mostrarSkills$.subscribe((value) => {
@@ -25,6 +31,9 @@ export class BarraTarefas implements OnInit {
     });
     this.modalSobre.mostrarSobre$.subscribe((value) => {
       this.mostrarSobre = value;
+    });
+    this.modalIcon.mostrarIcons$.subscribe((value) => {
+      this.mostrarIcon = value;
     });
   }
 
@@ -45,5 +54,9 @@ export class BarraTarefas implements OnInit {
   fecharTudo() {
     this.modalSkill.fechar();
     this.modalSobre.fechar();
+  }
+
+  toogleIcons() {
+    this.modalIcon.toogle();
   }
 }
