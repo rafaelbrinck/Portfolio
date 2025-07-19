@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { SkillCard } from '../../shared/skill-card/skill-card';
+import { SkillCard } from '../../../shared/skill-card/skill-card';
 
 @Component({
   selector: 'app-skills',

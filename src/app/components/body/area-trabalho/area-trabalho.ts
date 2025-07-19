@@ -1,11 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Skills } from '../skills/skills';
+import { Skills } from '../pages/skills/skills';
 import { CommonModule } from '@angular/common';
-import { ModalSkill } from '../../../service/modal-skill';
+import { ModalSkill } from '../../../services/modal-skill';
+import { Info } from '../pages/info/info';
+import { ModalSobre } from '../../../services/modal-sobre';
 
 @Component({
   selector: 'app-area-trabalho',
-  imports: [Skills, CommonModule],
+  imports: [Skills, CommonModule, Info],
   templateUrl: './area-trabalho.html',
   styleUrl: './area-trabalho.css',
 })
@@ -13,21 +15,26 @@ export class AreaTrabalho implements OnInit {
   mostrarSkills: boolean = false;
   minimSkills: boolean = false;
 
-  constructor(@Inject(ModalSkill) private modalSkill: ModalSkill) {}
+  mostrarSobre: boolean = false;
+
+  constructor(
+    @Inject(ModalSkill) private modalSkill: ModalSkill,
+    private modalSobre: ModalSobre
+  ) {}
   ngOnInit() {
     this.modalSkill.mostrarSkills$.subscribe(
       (value) => (this.mostrarSkills = value)
     );
+    this.modalSobre.mostrarSobre$.subscribe(
+      (value) => (this.mostrarSobre = value)
+    );
   }
 
   abrirSkills() {
-    if (this.mostrarSkills == false) {
-      this.modalSkill.abrir();
-    } else {
-      this.modalSkill.fechar();
-    }
+    this.modalSkill.toggle();
   }
-  fecharSkills() {
-    this.mostrarSkills = false;
+
+  abrirSobre() {
+    this.modalSobre.toggle();
   }
 }
