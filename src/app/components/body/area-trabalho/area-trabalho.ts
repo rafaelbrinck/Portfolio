@@ -47,12 +47,18 @@ export class AreaTrabalho implements OnInit {
     if (this.mostrarSobre) {
       this.modalSobre.toggle();
     }
+    if (this.mostrarProjects) {
+      this.modalProjects.toggle();
+    }
     this.modalSkill.toggle();
   }
 
   abrirSobre() {
     if (this.mostrarSkills) {
       this.modalSkill.toggle();
+    }
+    if (this.mostrarProjects) {
+      this.modalProjects.toggle();
     }
     this.modalSobre.toggle();
   }

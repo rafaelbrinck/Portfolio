@@ -68,6 +68,7 @@ export class BarraTarefas implements OnInit {
   fecharTudo() {
     this.modalSkill.fechar();
     this.modalSobre.fechar();
+    this.modalProjects.fechar();
   }
 
   toogleIcons() {

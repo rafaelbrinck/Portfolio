@@ -11,4 +11,7 @@ export class ModalProject {
   toggle() {
     this._mostrarProjects.next(!this._mostrarProjects.getValue());
   }
+  fechar() {
+    this._mostrarProjects.next(false);
+  }
 }
