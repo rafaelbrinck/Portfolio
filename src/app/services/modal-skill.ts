@@ -13,6 +13,7 @@ export class ModalSkill {
 
   fechar() {
     this._mostrarSkills.next(false);
+    this._minSkills.next(false);
   }
 
   minimizar() {
@@ -21,6 +22,9 @@ export class ModalSkill {
   }
 
   toggle() {
+    if (this._minSkills.getValue()) {
+      this._minSkills.next(false);
+    }
     this._mostrarSkills.next(!this._mostrarSkills.getValue());
   }
 

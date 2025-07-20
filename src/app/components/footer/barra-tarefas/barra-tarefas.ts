@@ -18,7 +18,11 @@ export class BarraTarefas implements OnInit {
   minSkills: boolean = false;
 
   mostrarSobre: boolean = false;
+  minSobre: boolean = false;
+
   mostrarProjects: boolean = false;
+  minProjects: boolean = false;
+
   mostrarIcon: boolean = false;
   mostrarIniciar: boolean = false;
 
@@ -34,14 +38,23 @@ export class BarraTarefas implements OnInit {
     this.modalSkill.mostrarSkills$.subscribe((value) => {
       this.mostrarSkils = value;
     });
+    this.modalSkill.minSkills$.subscribe((value) => {
+      this.minSkills = value;
+    });
     this.modalSobre.mostrarSobre$.subscribe((value) => {
       this.mostrarSobre = value;
+    });
+    this.modalSobre.minSobre$.subscribe((value) => {
+      this.minSobre = value;
     });
     this.modalIcon.mostrarIcons$.subscribe((value) => {
       this.mostrarIcon = value;
     });
     this.modalProjects.mostrarProjects$.subscribe((value) => {
       this.mostrarProjects = value;
+    });
+    this.modalProjects.minProjects.subscribe((value) => {
+      this.minProjects = value;
     });
     this.modalIniciar.mostrarIniciar$.subscribe((value) => {
       this.mostrarIniciar = value;
@@ -52,12 +65,18 @@ export class BarraTarefas implements OnInit {
     if (this.mostrarSkils) {
       this.modalSkill.toggle();
     }
+    if (this.mostrarProjects) {
+      this.modalProjects.toggle();
+    }
     this.modalSobre.toggle();
   }
 
   abrirSkill() {
     if (this.mostrarSobre) {
       this.modalSobre.toggle();
+    }
+    if (this.mostrarProjects) {
+      this.modalProjects.toggle();
     }
     this.modalSkill.toggle();
   }

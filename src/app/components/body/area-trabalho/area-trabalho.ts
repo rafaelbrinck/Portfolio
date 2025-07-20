@@ -18,8 +18,6 @@ import { ModalIniciar } from '../../../services/modal-iniciar';
 })
 export class AreaTrabalho implements OnInit {
   mostrarSkills: boolean = false;
-  minimSkills: boolean = false;
-
   mostrarSobre: boolean = false;
   mostrarIcons: boolean = false;
   mostrarProjects: boolean = false;
@@ -82,5 +80,15 @@ export class AreaTrabalho implements OnInit {
 
   abrirIcons() {
     this.modalIcons.toogle();
+  }
+
+  minimizarSobre() {
+    this.modalSobre.minimizar();
+  }
+  minimizarSkill() {
+    this.modalSkill.minimizar();
+  }
+  minimizarProjects() {
+    this.modalProjects.minimizar();
   }
 }

@@ -11,19 +11,19 @@
     <div class="programas h-10 flex gap-1.5">
         <!-- Sobre -->
         <div class="habilidades h-10 w-12 flex items-center justify-center cursor-pointer box-border border-amber-50 text-white hover:bg-gray-600 hover:border-b-6"
-        [class.border-b-4]="mostrarSobre" (click)="abrirSobre()">
+        [class.border-b-4]="mostrarSobre || minSobre" (click)="abrirSobre()">
             <img src="assets/icons/projects.png" alt="" class="w-6.5">
         </div>
 
         <!-- Skills -->
         <div class="habilidades h-10 w-12 flex items-center justify-center cursor-pointer box-border border-amber-50 text-white hover:bg-gray-600 hover:border-b-6"
-        [class.border-b-4]="mostrarSkils" (click)="abrirSkill()">
+        [class.border-b-4]="mostrarSkils || minSkills" (click)="abrirSkill()">
             <img src="assets/icons/skills.png" class="w-9" alt="">
         </div>
 
         <!-- Projetos -->
         <div class="habilidades h-10 w-12 flex items-center justify-center cursor-pointer box-border border-amber-50 text-white hover:bg-gray-600 hover:border-b-6"
-        [class.border-b-4]="mostrarProjects" (click)="abrirProjects()">
+        [class.border-b-4]="mostrarProjects || minProjects" (click)="abrirProjects()">
             <img src="assets/icons/chrome.svg" alt="" class="w-7">
         </div>
     </div>
