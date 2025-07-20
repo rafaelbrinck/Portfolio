@@ -5,10 +5,12 @@ import { ModalSkill } from '../../../services/modal-skill';
 import { Info } from '../pages/info/info';
 import { ModalSobre } from '../../../services/modal-sobre';
 import { IconsSegPlano } from '../../../services/icons-seg-plano';
+import { Projects } from '../pages/projects/projects';
+import { ModalProject } from '../../../services/modal-project';
 
 @Component({
   selector: 'app-area-trabalho',
-  imports: [Skills, CommonModule, Info],
+  imports: [Skills, CommonModule, Info, Projects],
   templateUrl: './area-trabalho.html',
   styleUrl: './area-trabalho.css',
 })
@@ -18,11 +20,13 @@ export class AreaTrabalho implements OnInit {
 
   mostrarSobre: boolean = false;
   mostrarIcons: boolean = false;
+  mostrarProjects: boolean = false;
 
   constructor(
     @Inject(ModalSkill) private modalSkill: ModalSkill,
     private modalSobre: ModalSobre,
-    private modalIcons: IconsSegPlano
+    private modalIcons: IconsSegPlano,
+    private modalProjects: ModalProject
   ) {}
   ngOnInit() {
     this.modalSkill.mostrarSkills$.subscribe(
@@ -33,6 +37,9 @@ export class AreaTrabalho implements OnInit {
     );
     this.modalIcons.mostrarIcons$.subscribe((value) => {
       this.mostrarIcons = value;
+    });
+    this.modalProjects.mostrarProjects$.subscribe((value) => {
+      this.mostrarProjects = value;
     });
   }
 
@@ -49,6 +56,17 @@ export class AreaTrabalho implements OnInit {
     }
     this.modalSobre.toggle();
   }
+
+  abrirProjects() {
+    if (this.mostrarSobre) {
+      this.modalSobre.toggle();
+    }
+    if (this.mostrarSkills) {
+      this.modalSkill.toggle();
+    }
+    this.modalProjects.toggle();
+  }
+
   abrirIcons() {
     this.modalIcons.toogle();
   }

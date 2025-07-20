@@ -1,0 +1,51 @@
+<section class="w-full h-full bg-white py-10 px-4" id="projeto">
+  <!-- Título da seção -->
+  <div class="max-w-6xl mx-auto text-center mb-10">
+    <h2 class="text-3xl lg:text-4xl font-bold text-neutral-800">
+      Controle Financeiro e Orçamentos
+    </h2>
+  </div>
+
+  <!-- Conteúdo com imagem e descrição -->
+  <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-5">
+    
+    <!-- Imagem do projeto -->
+    <div class="w-full lg:w-1/2">
+      <img 
+        src="assets/pictures/projeto.png" 
+        alt="Demonstração do Projeto Financeiro" 
+        class="rounded-xl drop-shadow-[8px_8px_8px_rgba(0,0,0,1)] hover:drop-shadow-[18px_18px_18px_rgba(0,0,0,1)] hover:scale-105 transition-transform duration-300"
+      >
+    </div>
+
+    <!-- Conteúdo descritivo -->
+    <div class="w-full lg:w-1/2 flex flex-col gap-4">
+      <p class="text-neutral-700 text-justify indent-5 text-sm">
+        Desenvolvido em Angular com Supabase como backend, este sistema oferece uma solução prática e responsiva para controle financeiro e emissão de orçamentos de forma profissional.
+      </p>
+
+      <ul class="list-disc list-inside text-sm text-neutral-600 pl-2">
+        <li>Login com Supabase e senhas criptografadas (bcrypt)</li>
+        <li>CRUD de clientes, produtos e orçamentos</li>
+        <li>Envio de orçamentos via WhatsApp com mensagem formatada</li>
+        <li>Modais reutilizáveis para feedbacks centralizados</li>
+        <li>Layout responsivo com Bootstrap + Bootstrap Icons</li>
+        <li>Proteção de rotas com JWT simulado (RouteGuard)</li>
+      </ul>
+
+      <!-- Tecnologias -->
+      <div class="flex flex-wrap gap-2 mt-2">
+        <span class="bg-red-600 text-white px-3 py-1 text-xs rounded-full">Angular</span>
+        <span class="bg-slate-800 text-white px-3 py-1 text-xs rounded-full">Supabase</span>
+        <span class="bg-blue-700 text-white px-3 py-1 text-xs rounded-full">Bootstrap</span>
+        <span class="bg-green-700 text-white px-3 py-1 text-xs rounded-full">TypeScript</span>
+      </div>
+
+      <!-- Links -->
+      <div class="flex gap-4 mt-4">
+        <div (click)="ativarSimulation()" class="text-white bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition cursor-pointer">Ver Projeto</div>
+        <a href="https://github.com/rafaelbrinck/ControleFinanceiro-Angular.git" target="_blank" class="text-white bg-neutral-800 px-4 py-2 rounded-lg hover:bg-black transition">Ver Código</a>
+      </div>
+    </div>
+  </div>
+</section>
