@@ -7,10 +7,12 @@ import { ModalSobre } from '../../../services/modal-sobre';
 import { IconsSegPlano } from '../../../services/icons-seg-plano';
 import { Projects } from '../pages/projects/projects';
 import { ModalProject } from '../../../services/modal-project';
+import { BarraIniciar } from '../../shared/barra-iniciar/barra-iniciar';
+import { ModalIniciar } from '../../../services/modal-iniciar';
 
 @Component({
   selector: 'app-area-trabalho',
-  imports: [Skills, CommonModule, Info, Projects],
+  imports: [Skills, CommonModule, Info, Projects, BarraIniciar],
   templateUrl: './area-trabalho.html',
   styleUrl: './area-trabalho.css',
 })
@@ -21,12 +23,14 @@ export class AreaTrabalho implements OnInit {
   mostrarSobre: boolean = false;
   mostrarIcons: boolean = false;
   mostrarProjects: boolean = false;
+  mostrarIniciar: boolean = false;
 
   constructor(
     @Inject(ModalSkill) private modalSkill: ModalSkill,
     private modalSobre: ModalSobre,
     private modalIcons: IconsSegPlano,
-    private modalProjects: ModalProject
+    private modalProjects: ModalProject,
+    private modalIniciar: ModalIniciar
   ) {}
   ngOnInit() {
     this.modalSkill.mostrarSkills$.subscribe(
@@ -40,6 +44,9 @@ export class AreaTrabalho implements OnInit {
     });
     this.modalProjects.mostrarProjects$.subscribe((value) => {
       this.mostrarProjects = value;
+    });
+    this.modalIniciar.mostrarIniciar$.subscribe((value) => {
+      this.mostrarIniciar = value;
     });
   }
 

@@ -1,6 +1,11 @@
 
 <div class="barra-tarefas fixed bottom-0 w-full h-10 flex bg-gray-700">
-    <div class="botao h-10 w-12 flex items-center justify-center text-white hover:bg-gray-600 cursor-pointer">
+    <div class="botao h-10 w-12 flex items-center justify-center text-white cursor-pointer"
+    [ngClass]="{
+        'bg-gray-600': mostrarIniciar,
+        'hover:bg-gray-600': !mostrarIniciar
+    }
+    " (click)="toogleIniciar()">
         <i class="bi bi-windows"></i>
     </div>
     <div class="programas h-10 flex gap-1.5">

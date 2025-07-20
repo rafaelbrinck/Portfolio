@@ -5,6 +5,7 @@ import { ModalSobre } from '../../../services/modal-sobre';
 import { Relogio } from '../relogio/relogio';
 import { IconsSegPlano } from '../../../services/icons-seg-plano';
 import { ModalProject } from '../../../services/modal-project';
+import { ModalIniciar } from '../../../services/modal-iniciar';
 
 @Component({
   selector: 'app-barra-tarefas',
@@ -19,12 +20,14 @@ export class BarraTarefas implements OnInit {
   mostrarSobre: boolean = false;
   mostrarProjects: boolean = false;
   mostrarIcon: boolean = false;
+  mostrarIniciar: boolean = false;
 
   constructor(
     private modalSkill: ModalSkill,
     private modalSobre: ModalSobre,
     private modalIcon: IconsSegPlano,
-    private modalProjects: ModalProject
+    private modalProjects: ModalProject,
+    private modalIniciar: ModalIniciar
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +42,9 @@ export class BarraTarefas implements OnInit {
     });
     this.modalProjects.mostrarProjects$.subscribe((value) => {
       this.mostrarProjects = value;
+    });
+    this.modalIniciar.mostrarIniciar$.subscribe((value) => {
+      this.mostrarIniciar = value;
     });
   }
 
@@ -69,6 +75,11 @@ export class BarraTarefas implements OnInit {
     this.modalSkill.fechar();
     this.modalSobre.fechar();
     this.modalProjects.fechar();
+    this.modalIniciar.fechar();
+  }
+
+  toogleIniciar() {
+    this.modalIniciar.toogle();
   }
 
   toogleIcons() {

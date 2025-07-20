@@ -19,4 +19,8 @@ export class ModalSobre {
   toggle() {
     this._mostrarSobre.next(!this._mostrarSobre.getValue());
   }
+
+  getValue(): boolean {
+    return this._mostrarSobre.getValue();
+  }
 }

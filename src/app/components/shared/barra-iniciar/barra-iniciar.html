@@ -1,0 +1,29 @@
+<div class="w-60 h-75 bg-gray-800 absolute bottom-10 left-0 flex z-100">
+    <div class="icons h-full w-20 flex flex-col justify-between bg-gray-700 text-white text-xl">
+        <i class="bi bi-list w-full h-10 flex items-center justify-center hover:bg-gray-600"></i>
+        
+        <div class="w-full flex flex-col-reverse">
+            <i class="bi bi-gear w-full h-10 flex items-center justify-center hover:bg-gray-600"></i>
+            <i class="bi bi-card-image w-full h-10 flex items-center justify-center hover:bg-gray-600"></i>
+            <i class="bi bi-file-earmark w-full h-10 flex items-center justify-center hover:bg-gray-600"></i>
+            <i class="bi bi-person-circle w-full h-10 flex items-center justify-center hover:bg-gray-600"></i>
+        </div>
+    </div>
+    <div class="programs text-white text-sm w-full">
+        <p class="w-full p-1.5 hover:bg-gray-600 text-xs">H</p>
+        <div class="flex items-center gap-2 p-1 hover:bg-gray-600" (click)="abrirSkills()">
+            <img src="assets/icons/skills.png" class="w-8" alt="">
+            <label>Habilidades</label>
+        </div>
+        <p class="w-full p-1.5 hover:bg-gray-600 text-xs">P</p>
+        <div class="flex items-center gap-2 p-1 hover:bg-gray-600" (click)="abrirProjects()">
+            <img src="assets/icons/chrome.svg" class="w-6" alt="">
+            <label>Projetos</label>
+        </div>
+        <p class="w-full p-1.5 hover:bg-gray-600 text-xs">S</p>
+        <div class="flex items-center gap-2 p-1 hover:bg-gray-600" (click)="abrirSobre()">
+            <img src="assets/icons/projects.png" class="w-6" alt="">
+            <label>Sobre</label>
+        </div>
+    </div>
+</div>

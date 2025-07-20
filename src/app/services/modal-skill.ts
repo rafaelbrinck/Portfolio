@@ -23,4 +23,8 @@ export class ModalSkill {
   toggle() {
     this._mostrarSkills.next(!this._mostrarSkills.getValue());
   }
+
+  getValue(): boolean {
+    return this._mostrarSkills.getValue();
+  }
 }
