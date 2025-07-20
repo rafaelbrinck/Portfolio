@@ -9,10 +9,11 @@ import { Projects } from '../pages/projects/projects';
 import { ModalProject } from '../../../services/modal-project';
 import { BarraIniciar } from '../../shared/barra-iniciar/barra-iniciar';
 import { ModalIniciar } from '../../../services/modal-iniciar';
+import { Aviso } from '../../shared/aviso/aviso';
 
 @Component({
   selector: 'app-area-trabalho',
-  imports: [Skills, CommonModule, Info, Projects, BarraIniciar],
+  imports: [Skills, CommonModule, Info, Projects, BarraIniciar, Aviso],
   templateUrl: './area-trabalho.html',
   styleUrl: './area-trabalho.css',
 })
@@ -22,6 +23,8 @@ export class AreaTrabalho implements OnInit {
   mostrarIcons: boolean = false;
   mostrarProjects: boolean = false;
   mostrarIniciar: boolean = false;
+
+  aviso: boolean = true;
 
   constructor(
     @Inject(ModalSkill) private modalSkill: ModalSkill,
@@ -90,5 +93,9 @@ export class AreaTrabalho implements OnInit {
   }
   minimizarProjects() {
     this.modalProjects.minimizar();
+  }
+
+  fecharAviso() {
+    this.aviso = false;
   }
 }
