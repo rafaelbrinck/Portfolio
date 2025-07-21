@@ -25,7 +25,7 @@ export class BarraIniciar {
     if (this.modalProjects.getValue()) {
       this.modalProjects.toggle();
     }
-    this.modalSkill.toggle();
+    this.modalSkill.abrir();
     this.modalIniciar.toogle();
   }
 
@@ -36,7 +36,7 @@ export class BarraIniciar {
     if (this.modalProjects.getValue()) {
       this.modalProjects.toggle();
     }
-    this.modalSobre.toggle();
+    this.modalSobre.abrir();
     this.modalIniciar.toogle();
   }
 
@@ -47,7 +47,7 @@ export class BarraIniciar {
     if (this.modalSkill.getValue()) {
       this.modalSkill.toggle();
     }
-    this.modalProjects.toggle();
+    this.modalProjects.abrir();
     this.modalIniciar.toogle();
   }
 }

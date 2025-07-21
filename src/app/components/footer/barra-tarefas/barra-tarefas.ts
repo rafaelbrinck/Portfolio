@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { ModalSkill } from '../../../services/modal-skill';
 import { CommonModule } from '@angular/common';
 import { ModalSobre } from '../../../services/modal-sobre';
@@ -6,6 +12,9 @@ import { Relogio } from '../relogio/relogio';
 import { IconsSegPlano } from '../../../services/icons-seg-plano';
 import { ModalProject } from '../../../services/modal-project';
 import { ModalIniciar } from '../../../services/modal-iniciar';
+import { Info } from '../../body/pages/info/info';
+import { Projects } from '../../body/pages/projects/projects';
+import { Skills } from '../../body/pages/skills/skills';
 
 @Component({
   selector: 'app-barra-tarefas',
@@ -25,6 +34,8 @@ export class BarraTarefas implements OnInit {
 
   mostrarIcon: boolean = false;
   mostrarIniciar: boolean = false;
+
+  valid: boolean = false;
 
   constructor(
     private modalSkill: ModalSkill,
@@ -62,6 +73,12 @@ export class BarraTarefas implements OnInit {
   }
 
   abrirSobre() {
+    if (this.mostrarSobre && !this.valid) {
+      this.modalSobre.fecharAnimado();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
     if (this.mostrarSkils) {
       this.modalSkill.toggle();
     }
@@ -72,6 +89,12 @@ export class BarraTarefas implements OnInit {
   }
 
   abrirSkill() {
+    if (this.mostrarSkils && !this.valid) {
+      this.modalSkill.fecharAnimado();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
     if (this.mostrarSobre) {
       this.modalSobre.toggle();
     }
@@ -81,6 +104,12 @@ export class BarraTarefas implements OnInit {
     this.modalSkill.toggle();
   }
   abrirProjects() {
+    if (this.mostrarProjects && !this.valid) {
+      this.modalProjects.fecharAnimado();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
     if (this.mostrarSobre) {
       this.modalSobre.toggle();
     }

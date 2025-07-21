@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +11,9 @@ export class ModalSobre {
   private _minSobre = new BehaviorSubject<boolean>(false);
   minSobre$ = this._minSobre.asObservable();
 
+  private _fecharAnimado = new Subject<void>();
+  fecharAnimado$ = this._fecharAnimado.asObservable();
+
   abrir() {
     this._mostrarSobre.next(true);
   }
@@ -18,6 +21,10 @@ export class ModalSobre {
   fechar() {
     this._mostrarSobre.next(false);
     this._minSobre.next(false);
+  }
+
+  fecharAnimado() {
+    this._fecharAnimado.next();
   }
 
   toggle() {

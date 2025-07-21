@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, viewChild, ViewChild } from '@angular/core';
 import { Skills } from '../pages/skills/skills';
 import { CommonModule } from '@angular/common';
 import { ModalSkill } from '../../../services/modal-skill';
@@ -25,12 +25,22 @@ export class AreaTrabalho implements OnInit {
   mostrarIniciar: boolean = false;
 
   aviso: boolean = true;
+  valid: boolean = false;
+
+  @ViewChild(Info)
+  infoComponent!: Info;
+
+  @ViewChild(Projects)
+  projectComponent!: Projects;
+
+  @ViewChild(Skills)
+  skillComponent!: Skills;
 
   constructor(
-    @Inject(ModalSkill) private modalSkill: ModalSkill,
-    private modalSobre: ModalSobre,
+    public modalSkill: ModalSkill,
+    public modalSobre: ModalSobre,
     private modalIcons: IconsSegPlano,
-    private modalProjects: ModalProject,
+    public modalProjects: ModalProject,
     private modalIniciar: ModalIniciar
   ) {}
   ngOnInit() {
@@ -52,6 +62,12 @@ export class AreaTrabalho implements OnInit {
   }
 
   abrirSkills() {
+    if (this.mostrarSkills && !this.valid) {
+      this.skillComponent.fecharModal();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
     if (this.mostrarSobre) {
       this.modalSobre.toggle();
     }
@@ -62,6 +78,12 @@ export class AreaTrabalho implements OnInit {
   }
 
   abrirSobre() {
+    if (this.mostrarSobre && !this.valid) {
+      this.infoComponent.fecharModal();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
     if (this.mostrarSkills) {
       this.modalSkill.toggle();
     }
@@ -72,6 +94,12 @@ export class AreaTrabalho implements OnInit {
   }
 
   abrirProjects() {
+    if (this.mostrarProjects && !this.valid) {
+      this.projectComponent.fecharModal();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
     if (this.mostrarSobre) {
       this.modalSobre.toggle();
     }

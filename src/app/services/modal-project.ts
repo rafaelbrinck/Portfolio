@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +11,9 @@ export class ModalProject {
   private _minProjects = new BehaviorSubject<boolean>(false);
   minProjects = this._minProjects.asObservable();
 
+  private _fecharAnimado = new Subject<void>();
+  fecharAnimado$ = this._fecharAnimado.asObservable();
+
   toggle() {
     if (this._minProjects.getValue()) {
       this._minProjects.next(false);
@@ -20,6 +23,13 @@ export class ModalProject {
   fechar() {
     this._mostrarProjects.next(false);
     this._minProjects.next(false);
+  }
+  abrir() {
+    this._mostrarProjects.next(true);
+  }
+
+  fecharAnimado() {
+    this._fecharAnimado.next();
   }
 
   minimizar() {

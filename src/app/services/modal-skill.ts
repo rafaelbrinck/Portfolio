@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +11,19 @@ export class ModalSkill {
   private _minSkills = new BehaviorSubject<boolean>(false);
   minSkills$ = this._minSkills.asObservable();
 
+  private _fecharAnimado = new Subject<void>();
+  fecharAnimado$ = this._fecharAnimado.asObservable();
+
   fechar() {
     this._mostrarSkills.next(false);
     this._minSkills.next(false);
+  }
+  abrir() {
+    this._mostrarSkills.next(true);
+  }
+
+  fecharAnimado() {
+    this._fecharAnimado.next();
   }
 
   minimizar() {
