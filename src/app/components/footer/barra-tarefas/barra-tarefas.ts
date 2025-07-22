@@ -36,6 +36,7 @@ export class BarraTarefas implements OnInit {
   mostrarIniciar: boolean = false;
 
   valid: boolean = false;
+  mute: boolean = false;
 
   constructor(
     private modalSkill: ModalSkill,

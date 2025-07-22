@@ -24,7 +24,7 @@
         <!-- Projetos -->
         <div class="habilidades h-10 w-12 flex items-center justify-center cursor-pointer box-border border-amber-50 text-white hover:bg-gray-600 hover:border-b-6"
         [class.border-b-4]="mostrarProjects || minProjects" (click)="abrirProjects()">
-            <img src="assets/icons/chrome.svg" alt="" class="w-7">
+            <img src="assets/icons/chrome.svg" alt="" class="w-7" [class.animate-spin]="mostrarProjects">
         </div>
     </div>
 
@@ -42,8 +42,8 @@
         <div class="h-10 p-2 hover:bg-gray-600">
             <i class="bi bi-reception-4"></i>
         </div>
-        <div class="h-10 p-2 hover:bg-gray-600">
-            <i class="bi bi-volume-up"></i>
+        <div class="h-10 p-2 hover:bg-gray-600"  (click)="mute = !mute">
+            <i class="bi" [ngClass]="{'bi-volume-mute': mute, 'bi-volume-up': !mute}"></i>
         </div>
      </div>
 
