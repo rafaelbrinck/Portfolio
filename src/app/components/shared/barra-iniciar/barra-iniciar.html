@@ -9,21 +9,32 @@
             <i class="bi bi-person-circle w-full h-10 flex items-center justify-center hover:bg-gray-600"></i>
         </div>
     </div>
-    <div class="programs text-white text-sm w-full">
-        <p class="w-full p-1.5 hover:bg-gray-600 text-xs">H</p>
-        <div class="flex items-center gap-2 p-1 hover:bg-gray-600" (click)="abrirSkills()">
-            <img src="assets/icons/skills.png" class="w-8" alt="">
-            <label>Habilidades</label>
+    <div class="programs text-white text-sm w-full relative">
+        <div *ngFor="let letra of menuAgrupado | keyvalue">
+            <ng-container *ngIf="(letra.value | menu: buscaMenu).length > 0">
+                <p class="w-full p-1.5 hover:bg-gray-600 text-xs">{{ letra.key }}</p>
+
+                <div *ngFor="let item of letra.value | menu: buscaMenu"
+                    class="flex items-center gap-2 p-1 hover:bg-gray-600 cursor-pointer"
+                    (click)="item.acao()">
+                <img [src]="item.icon" class="w-6" alt="">
+                <label>{{ item.nome }}</label>
+                </div>
+            </ng-container>
         </div>
-        <p class="w-full p-1.5 hover:bg-gray-600 text-xs">P</p>
-        <div class="flex items-center gap-2 p-1 hover:bg-gray-600" (click)="abrirProjects()">
-            <img src="assets/icons/chrome.svg" class="w-6" alt="">
-            <label>Projetos</label>
-        </div>
-        <p class="w-full p-1.5 hover:bg-gray-600 text-xs">S</p>
-        <div class="flex items-center gap-2 p-1 hover:bg-gray-600" (click)="abrirSobre()">
-            <img src="assets/icons/projects.png" class="w-6" alt="">
-            <label>Sobre</label>
+        <div class="absolute bottom-0 right-0 w-full">
+            <div class="relative w-full bottom-0">
+                <img src="assets/icons/search.svg"
+                alt="Pesquisar"
+                class="absolute left-0 top-1/2 transform -translate-y-1/2 w-7 h-7 opacity-70">
+
+                <input
+                type="text"
+                [(ngModel)]="buscaMenu"
+                placeholder="Pesquisar..."
+                class="w-full pl-8 pr-2 py-1 text-sm text-white bg-transparent border border-gray-800 hover:border-gray-600 b-rounded outline-none focus:border-gray-300"
+                >
+            </div>
         </div>
     </div>
 </div>
