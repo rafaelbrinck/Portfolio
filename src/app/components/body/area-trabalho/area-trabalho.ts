@@ -10,10 +10,11 @@ import { ModalProject } from '../../../services/modal-project';
 import { BarraIniciar } from '../../shared/barra-iniciar/barra-iniciar';
 import { ModalIniciar } from '../../../services/modal-iniciar';
 import { Aviso } from '../../shared/aviso/aviso';
+import { Contact } from '../pages/contact/contact';
 
 @Component({
   selector: 'app-area-trabalho',
-  imports: [Skills, CommonModule, Info, Projects, BarraIniciar, Aviso],
+  imports: [Skills, CommonModule, Info, Projects, BarraIniciar, Aviso, Contact],
   templateUrl: './area-trabalho.html',
   styleUrl: './area-trabalho.css',
 })
