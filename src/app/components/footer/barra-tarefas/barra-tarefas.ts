@@ -82,84 +82,85 @@ export class BarraTarefas implements OnInit {
 
   abrirSobre() {
     if (this.mostrarSobre && !this.valid) {
-      this.modalSobre.fecharAnimado();
+      this.modalSobre.minimizar();
       this.valid = true;
       return;
     }
     this.valid = false;
     if (this.mostrarSkils) {
-      this.modalSkill.toggle();
+      this.modalSkill.minimizar();
     }
     if (this.mostrarProjects) {
-      this.modalProjects.toggle();
+      this.modalProjects.minimizar();
     }
     if (this.mostrarContato) {
-      this.modalContato.toggle();
+      this.modalContato.minimizar();
     }
     this.modalSobre.toggle();
   }
 
   abrirContato() {
     if (this.mostrarContato && !this.valid) {
-      this.modalContato.fecharAnimado();
+      this.modalContato.minimizar();
       this.valid = true;
       return;
     }
     this.valid = false;
     if (this.mostrarSkils) {
-      this.modalSkill.toggle();
+      this.modalSkill.minimizar();
     }
     if (this.mostrarProjects) {
-      this.modalProjects.toggle();
+      this.modalProjects.minimizar();
     }
     if (this.mostrarSobre) {
-      this.modalSobre.toggle();
+      this.modalSobre.minimizar();
     }
-    this.modalSobre.toggle();
+    this.modalContato.toggle();
   }
 
   abrirSkill() {
     if (this.mostrarSkils && !this.valid) {
-      this.modalSkill.fecharAnimado();
+      this.modalSkill.minimizar();
       this.valid = true;
       return;
     }
     this.valid = false;
     if (this.mostrarSobre) {
-      this.modalSobre.toggle();
+      this.modalSobre.minimizar();
     }
     if (this.mostrarProjects) {
-      this.modalProjects.toggle();
+      this.modalProjects.minimizar();
     }
     if (this.mostrarContato) {
-      this.modalContato.toggle();
+      this.modalContato.minimizar();
     }
     this.modalSkill.toggle();
   }
   abrirProjects() {
     if (this.mostrarProjects && !this.valid) {
-      this.modalProjects.fecharAnimado();
+      this.modalProjects.minimizar();
       this.valid = true;
       return;
     }
     this.valid = false;
     if (this.mostrarSobre) {
-      this.modalSobre.toggle();
+      this.modalSobre.minimizar();
     }
     if (this.mostrarSkils) {
-      this.modalSkill.toggle();
+      this.modalSkill.minimizar();
     }
     if (this.mostrarContato) {
-      this.modalContato.toggle();
+      this.modalContato.minimizar();
     }
     this.modalProjects.toggle();
   }
 
   fecharTudo() {
-    this.modalSkill.fechar();
-    this.modalSobre.fechar();
-    this.modalProjects.fechar();
+    this.modalSkill.minimizar();
+    this.modalSobre.minimizar();
+    this.modalProjects.minimizar();
     this.modalIniciar.fechar();
+    this.modalContato.minimizar();
   }
 
   toogleIniciar() {

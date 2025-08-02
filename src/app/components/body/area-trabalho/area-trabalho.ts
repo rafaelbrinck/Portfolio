@@ -79,70 +79,70 @@ export class AreaTrabalho implements OnInit {
     }
     this.valid = false;
     if (this.mostrarSobre) {
-      this.modalSobre.toggle();
+      this.minimizarSobre();
     }
     if (this.mostrarProjects) {
-      this.modalProjects.toggle();
+      this.minimizarProjects();
     }
     if (this.mostrarContato) {
-      this.modalContato.toggle();
+      this.minimizarContato();
     }
     this.modalSkill.toggle();
   }
 
   abrirContato() {
     if (this.mostrarContato && !this.valid) {
-      this.contactComponent.fecharModal();
+      this.contactComponent.minimizarModal();
       this.valid = true;
       return;
     }
     this.valid = false;
     if (this.mostrarSkills) {
-      this.modalSkill.toggle();
+      this.minimizarSkill();
     }
     if (this.mostrarSobre) {
-      this.modalSobre.toggle();
+      this.minimizarSobre();
     }
     if (this.mostrarProjects) {
-      this.modalProjects.toggle();
+      this.minimizarProjects();
     }
     this.modalContato.toggle();
   }
 
   abrirSobre() {
     if (this.mostrarSobre && !this.valid) {
-      this.infoComponent.fecharModal();
+      this.infoComponent.minimizarModal();
       this.valid = true;
       return;
     }
     this.valid = false;
     if (this.mostrarSkills) {
-      this.modalSkill.toggle();
+      this.minimizarSkill();
     }
     if (this.mostrarProjects) {
-      this.modalProjects.toggle();
+      this.minimizarProjects();
     }
     if (this.mostrarContato) {
-      this.modalContato.toggle();
+      this.minimizarContato();
     }
     this.modalSobre.toggle();
   }
 
   abrirProjects() {
     if (this.mostrarProjects && !this.valid) {
-      this.projectComponent.fecharModal();
+      this.projectComponent.minimizarModal();
       this.valid = true;
       return;
     }
     this.valid = false;
     if (this.mostrarSobre) {
-      this.modalSobre.toggle();
+      this.minimizarSobre();
     }
     if (this.mostrarSkills) {
-      this.modalSkill.toggle();
+      this.minimizarSkill();
     }
     if (this.mostrarContato) {
-      this.modalContato.toggle();
+      this.minimizarContato();
     }
     this.modalProjects.toggle();
   }
