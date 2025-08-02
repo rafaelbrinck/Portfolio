@@ -12,10 +12,7 @@ import { Relogio } from '../relogio/relogio';
 import { IconsSegPlano } from '../../../services/icons-seg-plano';
 import { ModalProject } from '../../../services/modal-project';
 import { ModalIniciar } from '../../../services/modal-iniciar';
-import { Info } from '../../body/pages/info/info';
-import { Projects } from '../../body/pages/projects/projects';
-import { Skills } from '../../body/pages/skills/skills';
-
+import { ModalContato } from '../../../services/modal-contato';
 @Component({
   selector: 'app-barra-tarefas',
   imports: [CommonModule, Relogio],
@@ -25,6 +22,9 @@ import { Skills } from '../../body/pages/skills/skills';
 export class BarraTarefas implements OnInit {
   mostrarSkils: boolean = false;
   minSkills: boolean = false;
+
+  mostrarContato: boolean = false;
+  minContato: boolean = false;
 
   mostrarSobre: boolean = false;
   minSobre: boolean = false;
@@ -43,7 +43,8 @@ export class BarraTarefas implements OnInit {
     private modalSobre: ModalSobre,
     private modalIcon: IconsSegPlano,
     private modalProjects: ModalProject,
-    private modalIniciar: ModalIniciar
+    private modalIniciar: ModalIniciar,
+    private modalContato: ModalContato
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +72,12 @@ export class BarraTarefas implements OnInit {
     this.modalIniciar.mostrarIniciar$.subscribe((value) => {
       this.mostrarIniciar = value;
     });
+    this.modalContato.mostrarContato$.subscribe((value) => {
+      this.mostrarContato = value;
+    });
+    this.modalContato.minContato$.subscribe((value) => {
+      this.minContato = value;
+    });
   }
 
   abrirSobre() {
@@ -85,6 +92,28 @@ export class BarraTarefas implements OnInit {
     }
     if (this.mostrarProjects) {
       this.modalProjects.toggle();
+    }
+    if (this.mostrarContato) {
+      this.modalContato.toggle();
+    }
+    this.modalSobre.toggle();
+  }
+
+  abrirContato() {
+    if (this.mostrarContato && !this.valid) {
+      this.modalContato.fecharAnimado();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
+    if (this.mostrarSkils) {
+      this.modalSkill.toggle();
+    }
+    if (this.mostrarProjects) {
+      this.modalProjects.toggle();
+    }
+    if (this.mostrarSobre) {
+      this.modalSobre.toggle();
     }
     this.modalSobre.toggle();
   }
@@ -102,6 +131,9 @@ export class BarraTarefas implements OnInit {
     if (this.mostrarProjects) {
       this.modalProjects.toggle();
     }
+    if (this.mostrarContato) {
+      this.modalContato.toggle();
+    }
     this.modalSkill.toggle();
   }
   abrirProjects() {
@@ -116,6 +148,9 @@ export class BarraTarefas implements OnInit {
     }
     if (this.mostrarSkils) {
       this.modalSkill.toggle();
+    }
+    if (this.mostrarContato) {
+      this.modalContato.toggle();
     }
     this.modalProjects.toggle();
   }

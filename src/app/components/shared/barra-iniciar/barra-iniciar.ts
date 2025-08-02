@@ -7,6 +7,7 @@ import { animate } from 'motion';
 import { MenuPipe } from '../../../pipes/menu-pipe';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ModalContato } from '../../../services/modal-contato';
 
 @Component({
   selector: 'app-barra-iniciar',
@@ -55,7 +56,8 @@ export class BarraIniciar {
     private modalSkill: ModalSkill,
     private modalSobre: ModalSobre,
     private modalProjects: ModalProject,
-    private modalIniciar: ModalIniciar
+    private modalIniciar: ModalIniciar,
+    private modalContato: ModalContato
   ) {}
 
   ngAfterViewInit() {
@@ -78,20 +80,34 @@ export class BarraIniciar {
           ease: 'easeOut',
         }
       ).finished.then(() => {
-        // Remove o overflow/height fixo após a animação
         this.renderer.setStyle(element, 'height', '300px');
         this.renderer.removeStyle(element, 'overflow');
       });
     }
   }
 
-  abrirContato() {}
+  abrirContato() {
+    if (this.modalSkill.getValue()) {
+      this.modalSkill.toggle();
+    }
+    if (this.modalSobre.getValue()) {
+      this.modalSobre.toggle();
+    }
+    if (this.modalProjects.getValue()) {
+      this.modalProjects.toggle();
+    }
+    this.modalIniciar.toogle();
+    this.modalContato.abrir();
+  }
   abrirSkills() {
     if (this.modalSobre.getValue()) {
       this.modalSobre.toggle();
     }
     if (this.modalProjects.getValue()) {
       this.modalProjects.toggle();
+    }
+    if (this.modalContato.getValue()) {
+      this.modalContato.toggle();
     }
     this.modalSkill.abrir();
     this.modalIniciar.toogle();
@@ -104,6 +120,10 @@ export class BarraIniciar {
     if (this.modalProjects.getValue()) {
       this.modalProjects.toggle();
     }
+
+    if (this.modalContato.getValue()) {
+      this.modalContato.toggle();
+    }
     this.modalSobre.abrir();
     this.modalIniciar.toogle();
   }
@@ -114,6 +134,10 @@ export class BarraIniciar {
     }
     if (this.modalSkill.getValue()) {
       this.modalSkill.toggle();
+    }
+
+    if (this.modalContato.getValue()) {
+      this.modalContato.toggle();
     }
     this.modalProjects.abrir();
     this.modalIniciar.toogle();

@@ -36,10 +36,10 @@ export class Aviso {
         { opacity: 0, scale: 0.8 },
         { duration: 0.3, ease: 'easeInOut' }
       ).finished.then(() => {
-        this.fechar.emit(); // Só emite quando a animação termina
+        this.fechar.emit();
       });
     } else {
-      this.fechar.emit(); // fallback
+      this.fechar.emit();
     }
   }
 }

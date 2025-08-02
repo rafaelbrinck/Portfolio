@@ -1,4 +1,4 @@
-import { Component, OnInit, viewChild, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Skills } from '../pages/skills/skills';
 import { CommonModule } from '@angular/common';
 import { ModalSkill } from '../../../services/modal-skill';
@@ -11,6 +11,7 @@ import { BarraIniciar } from '../../shared/barra-iniciar/barra-iniciar';
 import { ModalIniciar } from '../../../services/modal-iniciar';
 import { Aviso } from '../../shared/aviso/aviso';
 import { Contact } from '../pages/contact/contact';
+import { ModalContato } from '../../../services/modal-contato';
 
 @Component({
   selector: 'app-area-trabalho',
@@ -24,6 +25,7 @@ export class AreaTrabalho implements OnInit {
   mostrarIcons: boolean = false;
   mostrarProjects: boolean = false;
   mostrarIniciar: boolean = false;
+  mostrarContato: boolean = false;
 
   aviso: boolean = true;
   valid: boolean = false;
@@ -37,12 +39,16 @@ export class AreaTrabalho implements OnInit {
   @ViewChild(Skills)
   skillComponent!: Skills;
 
+  @ViewChild(Contact)
+  contactComponent!: Contact;
+
   constructor(
     public modalSkill: ModalSkill,
     public modalSobre: ModalSobre,
     private modalIcons: IconsSegPlano,
     public modalProjects: ModalProject,
-    private modalIniciar: ModalIniciar
+    private modalIniciar: ModalIniciar,
+    public modalContato: ModalContato
   ) {}
   ngOnInit() {
     this.modalSkill.mostrarSkills$.subscribe(
@@ -60,6 +66,9 @@ export class AreaTrabalho implements OnInit {
     this.modalIniciar.mostrarIniciar$.subscribe((value) => {
       this.mostrarIniciar = value;
     });
+    this.modalContato.mostrarContato$.subscribe((value) => {
+      this.mostrarContato = value;
+    });
   }
 
   abrirSkills() {
@@ -75,7 +84,29 @@ export class AreaTrabalho implements OnInit {
     if (this.mostrarProjects) {
       this.modalProjects.toggle();
     }
+    if (this.mostrarContato) {
+      this.modalContato.toggle();
+    }
     this.modalSkill.toggle();
+  }
+
+  abrirContato() {
+    if (this.mostrarContato && !this.valid) {
+      this.contactComponent.fecharModal();
+      this.valid = true;
+      return;
+    }
+    this.valid = false;
+    if (this.mostrarSkills) {
+      this.modalSkill.toggle();
+    }
+    if (this.mostrarSobre) {
+      this.modalSobre.toggle();
+    }
+    if (this.mostrarProjects) {
+      this.modalProjects.toggle();
+    }
+    this.modalContato.toggle();
   }
 
   abrirSobre() {
@@ -90,6 +121,9 @@ export class AreaTrabalho implements OnInit {
     }
     if (this.mostrarProjects) {
       this.modalProjects.toggle();
+    }
+    if (this.mostrarContato) {
+      this.modalContato.toggle();
     }
     this.modalSobre.toggle();
   }
@@ -107,7 +141,16 @@ export class AreaTrabalho implements OnInit {
     if (this.mostrarSkills) {
       this.modalSkill.toggle();
     }
+    if (this.mostrarContato) {
+      this.modalContato.toggle();
+    }
     this.modalProjects.toggle();
+  }
+
+  fecharIniciar() {
+    if (this.mostrarIniciar) {
+      this.modalIniciar.fechar();
+    }
   }
 
   abrirIcons() {
@@ -122,6 +165,9 @@ export class AreaTrabalho implements OnInit {
   }
   minimizarProjects() {
     this.modalProjects.minimizar();
+  }
+  minimizarContato() {
+    this.modalContato.minimizar();
   }
 
   fecharAviso() {
