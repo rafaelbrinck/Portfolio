@@ -1,7 +1,18 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmailService } from '../../../../services/email';
+import { Subscription } from 'rxjs';
+import { ModalContato } from '../../../../services/modal-contato';
+import { animate } from 'motion';
 
 @Component({
   selector: 'app-contact',
@@ -9,10 +20,37 @@ import { EmailService } from '../../../../services/email';
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
-export class Contact {
+export class Contact implements OnInit, OnDestroy {
+  @Output() fechar = new EventEmitter<void>();
+  @Output() minim = new EventEmitter<void>();
+
   @ViewChild('formElement') formElement!: ElementRef<HTMLFormElement>;
 
-  constructor(private emailService: EmailService) {}
+  @ViewChild('modalContainer', { static: false }) modalContainer!: ElementRef;
+
+  private fecharSub!: Subscription;
+
+  constructor(
+    private emailService: EmailService,
+    private service: ModalContato
+  ) {}
+
+  ngOnInit(): void {
+    this.fecharSub = this.service.fecharAnimado$.subscribe(() => {
+      this.fecharModal();
+    });
+  }
+  ngAfterViewInit() {
+    if (this.modalContainer?.nativeElement) {
+      this.modalContainer.nativeElement.style.opacity = '0';
+      this.modalContainer.nativeElement.style.transform = 'scale(0.1)';
+      animate(
+        this.modalContainer.nativeElement,
+        { opacity: [0, 1], scale: [0.1, 1] },
+        { duration: 0.3, ease: 'easeOut' }
+      );
+    }
+  }
 
   sendMail() {
     const form = this.formElement?.nativeElement;
@@ -50,6 +88,24 @@ export class Contact {
     }
     return true;
   }
-  fecharModal() {}
-  minimizarModal() {}
+  fecharModal() {
+    if (this.modalContainer?.nativeElement) {
+      animate(
+        this.modalContainer.nativeElement,
+        { opacity: 0, scale: 0.8 },
+        { duration: 0.3, ease: 'easeInOut' }
+      ).finished.then(() => {
+        this.fechar.emit();
+      });
+    } else {
+      this.fechar.emit();
+    }
+  }
+  minimizarModal() {
+    this.minim.emit();
+  }
+
+  ngOnDestroy(): void {
+    this.fecharSub?.unsubscribe();
+  }
 }
