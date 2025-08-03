@@ -8,6 +8,8 @@ import { MenuPipe } from '../../../pipes/menu-pipe';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ModalContato } from '../../../services/modal-contato';
+import { AuthService } from '../../../services/auth-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-barra-iniciar',
@@ -52,12 +54,14 @@ export class BarraIniciar {
   buscaMenu: string = '';
 
   constructor(
+    private router: Router,
     private renderer: Renderer2,
     private modalSkill: ModalSkill,
     private modalSobre: ModalSobre,
     private modalProjects: ModalProject,
     private modalIniciar: ModalIniciar,
-    private modalContato: ModalContato
+    private modalContato: ModalContato,
+    private auth: AuthService
   ) {}
 
   ngAfterViewInit() {
@@ -141,5 +145,10 @@ export class BarraIniciar {
     }
     this.modalProjects.abrir();
     this.modalIniciar.toogle();
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['']);
   }
 }
