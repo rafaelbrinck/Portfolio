@@ -1,8 +1,8 @@
 <div class="area-fundo flex items-center justify-center">
-    <app-contact *ngIf="(modalContato.mostrarContato$ | async)" (fechar)="abrirContato()" (minim)="minimizarContato()" />
-    <app-skills *ngIf="(modalSkill.mostrarSkills$ | async)"  (fechar)="abrirSkills()" (minim)="minimizarSkill()"/>
-    <app-info *ngIf="(modalSobre.mostrarSobre$ | async)" (fechar)="abrirSobre()" (minim)="minimizarSobre()"/>
-    <app-projects *ngIf="(modalProjects.mostrarProjects$ | async)" (fechar)="abrirProjects()"  (minim)="minimizarProjects()"/>
+    <app-contact *ngIf="(modalContato.mostrarContato$ | async)" (fechar)="modalContato.fecharAnimado()" (minim)="minimizarContato()" />
+    <app-skills *ngIf="(modalSkill.mostrarSkills$ | async)"  (fechar)="modalSkill.fecharAnimado()" (minim)="minimizarSkill()"/>
+    <app-info *ngIf="(modalSobre.mostrarSobre$ | async)" (fechar)="modalSobre.fecharAnimado()" (minim)="minimizarSobre()"/>
+    <app-projects *ngIf="(modalProjects.mostrarProjects$ | async)" (fechar)="modalProjects.fecharAnimado()"  (minim)="minimizarProjects()"/>
 
 
 

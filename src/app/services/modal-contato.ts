@@ -29,6 +29,8 @@ export class ModalContato {
   }
   fecharAnimado() {
     this._fecharAnimado.next();
+    this._mostrarContato.next(false);
+    this._minContato.next(false);
   }
   minimizar() {
     this._minContato.next(true);

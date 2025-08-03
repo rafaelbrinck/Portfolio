@@ -88,26 +88,26 @@ export class BarraIniciar {
 
   abrirContato() {
     if (this.modalSkill.getValue()) {
-      this.modalSkill.toggle();
+      this.modalSkill.minimizar();
     }
     if (this.modalSobre.getValue()) {
-      this.modalSobre.toggle();
+      this.modalSobre.minimizar();
     }
     if (this.modalProjects.getValue()) {
-      this.modalProjects.toggle();
+      this.modalProjects.minimizar();
     }
     this.modalIniciar.toogle();
     this.modalContato.abrir();
   }
   abrirSkills() {
     if (this.modalSobre.getValue()) {
-      this.modalSobre.toggle();
+      this.modalSobre.minimizar();
     }
     if (this.modalProjects.getValue()) {
-      this.modalProjects.toggle();
+      this.modalProjects.minimizar();
     }
     if (this.modalContato.getValue()) {
-      this.modalContato.toggle();
+      this.modalContato.minimizar();
     }
     this.modalSkill.abrir();
     this.modalIniciar.toogle();
@@ -115,14 +115,14 @@ export class BarraIniciar {
 
   abrirSobre() {
     if (this.modalSkill.getValue()) {
-      this.modalSkill.toggle();
+      this.modalSkill.minimizar();
     }
     if (this.modalProjects.getValue()) {
-      this.modalProjects.toggle();
+      this.modalProjects.minimizar();
     }
 
     if (this.modalContato.getValue()) {
-      this.modalContato.toggle();
+      this.modalContato.minimizar();
     }
     this.modalSobre.abrir();
     this.modalIniciar.toogle();
@@ -130,14 +130,14 @@ export class BarraIniciar {
 
   abrirProjects() {
     if (this.modalSobre.getValue()) {
-      this.modalSobre.toggle();
+      this.modalSobre.minimizar();
     }
     if (this.modalSkill.getValue()) {
-      this.modalSkill.toggle();
+      this.modalSkill.minimizar();
     }
 
     if (this.modalContato.getValue()) {
-      this.modalContato.toggle();
+      this.modalContato.minimizar();
     }
     this.modalProjects.abrir();
     this.modalIniciar.toogle();

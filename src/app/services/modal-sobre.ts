@@ -25,6 +25,8 @@ export class ModalSobre {
 
   fecharAnimado() {
     this._fecharAnimado.next();
+    this._mostrarSobre.next(false);
+    this._minSobre.next(false);
   }
 
   toggle() {

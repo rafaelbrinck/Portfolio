@@ -72,79 +72,87 @@ export class AreaTrabalho implements OnInit {
   }
 
   abrirSkills() {
-    if (this.mostrarSkills && !this.valid) {
-      this.skillComponent.fecharModal();
-      this.valid = true;
-      return;
+    if (!this.mostrarSkills) {
+      if (this.mostrarSkills && !this.valid) {
+        this.skillComponent.fecharModal();
+        this.valid = true;
+        return;
+      }
+      this.valid = false;
+      if (this.mostrarSobre) {
+        this.minimizarSobre();
+      }
+      if (this.mostrarProjects) {
+        this.minimizarProjects();
+      }
+      if (this.mostrarContato) {
+        this.minimizarContato();
+      }
+      this.modalSkill.toggle();
     }
-    this.valid = false;
-    if (this.mostrarSobre) {
-      this.minimizarSobre();
-    }
-    if (this.mostrarProjects) {
-      this.minimizarProjects();
-    }
-    if (this.mostrarContato) {
-      this.minimizarContato();
-    }
-    this.modalSkill.toggle();
   }
 
   abrirContato() {
-    if (this.mostrarContato && !this.valid) {
-      this.contactComponent.minimizarModal();
-      this.valid = true;
-      return;
+    if (!this.mostrarContato) {
+      if (this.mostrarContato && !this.valid) {
+        this.contactComponent.minimizarModal();
+        this.valid = true;
+        return;
+      }
+      this.valid = false;
+      if (this.mostrarSkills) {
+        this.minimizarSkill();
+      }
+      if (this.mostrarSobre) {
+        this.minimizarSobre();
+      }
+      if (this.mostrarProjects) {
+        this.minimizarProjects();
+      }
+      this.modalContato.toggle();
     }
-    this.valid = false;
-    if (this.mostrarSkills) {
-      this.minimizarSkill();
-    }
-    if (this.mostrarSobre) {
-      this.minimizarSobre();
-    }
-    if (this.mostrarProjects) {
-      this.minimizarProjects();
-    }
-    this.modalContato.toggle();
   }
 
   abrirSobre() {
-    if (this.mostrarSobre && !this.valid) {
-      this.infoComponent.minimizarModal();
-      this.valid = true;
-      return;
+    if (!this.mostrarSobre) {
+      if (this.mostrarSobre && !this.valid) {
+        this.infoComponent.minimizarModal();
+        this.valid = true;
+        return;
+      }
+      this.valid = false;
+      if (this.mostrarSkills) {
+        this.minimizarSkill();
+      }
+      if (this.mostrarProjects) {
+        this.minimizarProjects();
+      }
+      if (this.mostrarContato) {
+        this.minimizarContato();
+      }
+      this.modalSobre.toggle();
     }
-    this.valid = false;
-    if (this.mostrarSkills) {
-      this.minimizarSkill();
-    }
-    if (this.mostrarProjects) {
-      this.minimizarProjects();
-    }
-    if (this.mostrarContato) {
-      this.minimizarContato();
-    }
-    this.modalSobre.toggle();
   }
 
   abrirProjects() {
-    if (this.mostrarProjects && !this.valid) {
-      this.projectComponent.minimizarModal();
-      this.valid = true;
-      return;
+    if (!this.mostrarProjects) {
+      if (this.mostrarProjects && !this.valid) {
+        this.modalProjects.toggle();
+        this.valid = true;
+        return;
+      }
+      this.valid = false;
+      if (this.mostrarSobre) {
+        this.minimizarSobre();
+      }
+      if (this.mostrarSkills) {
+        this.minimizarSkill();
+      }
+      if (this.mostrarContato) {
+        this.minimizarContato();
+      }
+      this.modalProjects.toggle();
     }
-    this.valid = false;
-    if (this.mostrarSobre) {
-      this.minimizarSobre();
-    }
-    if (this.mostrarSkills) {
-      this.minimizarSkill();
-    }
-    if (this.mostrarContato) {
-      this.minimizarContato();
-    }
-    this.modalProjects.toggle();
   }
 
   fecharIniciar() {

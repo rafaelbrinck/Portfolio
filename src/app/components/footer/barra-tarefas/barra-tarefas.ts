@@ -42,7 +42,7 @@ export class BarraTarefas implements OnInit {
     private modalSkill: ModalSkill,
     private modalSobre: ModalSobre,
     private modalIcon: IconsSegPlano,
-    private modalProjects: ModalProject,
+    public modalProjects: ModalProject,
     private modalIniciar: ModalIniciar,
     private modalContato: ModalContato
   ) {}

@@ -24,6 +24,8 @@ export class ModalSkill {
 
   fecharAnimado() {
     this._fecharAnimado.next();
+    this._mostrarSkills.next(false);
+    this._minSkills.next(false);
   }
 
   minimizar() {

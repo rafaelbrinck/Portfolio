@@ -30,6 +30,8 @@ export class ModalProject {
 
   fecharAnimado() {
     this._fecharAnimado.next();
+    this._mostrarProjects.next(false);
+    this._minProjects.next(false);
   }
 
   minimizar() {
