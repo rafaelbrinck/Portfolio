@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Aviso } from '../components/shared/aviso/aviso';
 import { AuthService } from '../services/auth-service';
 import { Router } from '@angular/router';
+import { ModalIniciar } from '../services/modal-iniciar';
 
 @Component({
   selector: 'app-tela-user',
-  imports: [CommonModule, Aviso],
+  imports: [CommonModule],
   templateUrl: './tela-user.html',
   styleUrl: './tela-user.css',
 })
@@ -16,7 +16,11 @@ export class TelaUser {
   horaAtual: string = '';
   intervalo: any;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private modalIniciar: ModalIniciar
+  ) {}
 
   ngOnInit(): void {
     this.atualizarHora(); // chama logo ao iniciar
@@ -47,6 +51,7 @@ export class TelaUser {
 
   entrar() {
     this.auth.logar();
+    this.modalIniciar.fechar();
     this.router.navigate(['/home']);
   }
 
