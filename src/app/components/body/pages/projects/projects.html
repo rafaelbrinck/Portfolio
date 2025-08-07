@@ -1,6 +1,5 @@
-<div #modalContainer class="container h-150 rounded-xl bg-gray-300 relative shadow-2xl z-50 w-3xl max-w-lvw" 
+<div #modalContainer class="container min-h-130 rounded-xl bg-gray-300 relative shadow-2xl z-50 w-3xl max-w-lvw sm:h-150" 
 [ngClass]="{
-    'h-200': simulation,'h-150': !simulation,
     'mb-5': simulation
  }">
     <div class="top w-full h-7 bg-neutral-700 absolute top-0 ">
@@ -25,7 +24,7 @@
             }"></i>
             <i class="bi bi-arrow-clockwise hover:bg-gray-400 rounded-2xl  w-7 h-7"></i>
             <i class="bi bi-house-door hover:bg-gray-400 rounded-2xl  w-7 h-7" (click)="reload()"></i>
-            <div class="input bg-gray-800 text-left pl-5 pr-1 h-[70%] rounded-2xl text-base flex items-center justify-between"  [ngClass]="{'w-4/5': simulation,'w-3/5': !simulation, 'text-[11px]': simulation}">
+            <div class="input bg-gray-800 text-left pl-5 pr-1 min-h-[70%] rounded-2xl text-base flex items-center justify-between h-fit"  [ngClass]="{'w-4/5': simulation,'w-3/5': !simulation, 'text-[11px]': simulation}">
                 <p>{{url}}</p>
                 <i class="bi bi-star-fill hover:bg-gray-400 rounded-2xl  w-5 h-5 items-center justify-center flex text-sm"></i>
             </div>
