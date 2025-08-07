@@ -1,16 +1,16 @@
-<div   #modalContainer class="base container w-3xl h-150 rounded-xl bg-amber-100 relative shadow-2xl z-50">
+<div   #modalContainer class="base container h-150 rounded-xl bg-amber-100 relative shadow-2xl z-50 max-w-fit">
     <div class="top w-full h-7 bg-neutral-700 absolute top-0 ">
-        <div class="buttons flex gap-3 w-20 h-full absolute right-0 top-0 items-center justify-center mr-1">
+        <div class="buttons flex gap-3 w-20 h-full absolute right-0 top-0 items-center justify-center mr-1 z-40">
             <div class="minim h-3.5 w-3.5 bg-yellow-500 rounded-xl cursor-pointer hover:bg-yellow-700" (click)="minimizarModal()"></div>
             <div class="maxim h-3.5 w-3.5 bg-green-500 rounded-xl cursor-pointer hover:bg-green-700"></div>
             <div class="close h-3.5 w-3.5 bg-red-500 rounded-xl cursor-pointer hover:bg-red-700" (click)="fecharModal()"></div>
         </div>
     </div>
     
-    <div class="container grid grid-cols-2 w-full h-full text-center pt-10 pl-3 pr-3 box-border pb-3 gap-5">
+    <div class="container flex items-center justify-around flex-col overflow-scroll sem-scroll sm:grid sm:grid-cols-2 w-full h-full text-center pt-10 pl-3 pr-3 box-border pb-3 gap-5">
         <section class="front-end flex justify-around flex-col h-full">
             <h2 class="text-3xl font-bold mt-5">Front-End</h2>
-            <div class="container flex gap-2 flex-wrap pl-2">
+            <div class="container flex gap-2 flex-wrap p-2 items-center justify-center sm:justify-around">
                 <app-skill-card nome="HTML" img="https://skillicons.dev/icons?i=html"/>
                 <app-skill-card nome="CSS" img="https://skillicons.dev/icons?i=css"/>
                 <app-skill-card nome="Tailwind" img="https://skillicons.dev/icons?i=tailwind"/>
@@ -24,7 +24,7 @@
         </section>
         <section class="back-end flex justify-around flex-col h-full">
             <h2 class="text-3xl font-bold mt-5">Back-End</h2>
-            <div class="container flex gap-2 flex-wrap pl-2">
+            <div class="container flex gap-2 flex-wrap p-2 items-center justify-center sm:justify-around">
                 <app-skill-card nome="Python" img="https://skillicons.dev/icons?i=py"/>
                 <app-skill-card nome=".NET" img="https://skillicons.dev/icons?i=dotnet"/>
                 <app-skill-card nome="NodeJS" img="https://skillicons.dev/icons?i=nodejs"/>
@@ -34,14 +34,14 @@
         </section>
         <section class="banco-dados flex justify-around flex-col h-full p-3 ">
             <h2 class="text-3xl font-bold">Banco de Dados</h2>
-            <div class="container flex gap-2 flex-wrap">
+            <div class="container flex gap-2 flex-wrap  p-2 items-center justify-center">
                 <app-skill-card nome="PostgreSQL" img="https://skillicons.dev/icons?i=postgresql"/>
                 <app-skill-card nome="MySQL" img="https://skillicons.dev/icons?i=mysql"/>
             </div>
         </section>
         <section class="banco-dados flex justify-around flex-col h-full p-3 ">
             <h2 class="text-3xl font-bold">Refinando</h2>
-            <div class="container flex gap-2 flex-wrap">
+            <div class="container flex gap-2 flex-wrap  p-2 items-center justify-center">
                 <app-skill-card nome="C#" img="https://skillicons.dev/icons?i=cs"/>
                 <app-skill-card nome=".NET" img="https://skillicons.dev/icons?i=dotnet"/>
                 <app-skill-card nome="Angular" img="https://skillicons.dev/icons?i=angular"/>

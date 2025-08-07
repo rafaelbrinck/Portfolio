@@ -16,3 +16,11 @@
   border-radius: 20px;
   box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.434);
 }
+
+.sem-scroll::-webkit-scrollbar {
+  display: none;
+}
+.sem-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

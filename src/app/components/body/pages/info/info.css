@@ -7,3 +7,11 @@
   height: 100%;
   background-color: blue;
 }
+
+.sem-scroll::-webkit-scrollbar {
+  display: none;
+}
+.sem-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

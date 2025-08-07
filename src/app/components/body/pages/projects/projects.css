@@ -4,3 +4,10 @@
 .conteudo {
   border-radius: 0 0 12px 12px;
 }
+.sem-scroll::-webkit-scrollbar {
+  display: none;
+}
+.sem-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
