@@ -1,4 +1,4 @@
-<div class="area-fundo flex items-center justify-center">
+<div class="area-fundo flex items-center justify-center max-w-lvw max-h-[95vh]">
     <app-contact *ngIf="(modalContato.mostrarContato$ | async)" (fechar)="modalContato.fecharAnimado()" (minim)="minimizarContato()" />
     <app-skills *ngIf="(modalSkill.mostrarSkills$ | async)"  (fechar)="modalSkill.fecharAnimado()" (minim)="minimizarSkill()"/>
     <app-info *ngIf="(modalSobre.mostrarSobre$ | async)" (fechar)="modalSobre.fecharAnimado()" (minim)="minimizarSobre()"/>
