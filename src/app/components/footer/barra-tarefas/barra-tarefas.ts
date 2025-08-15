@@ -22,15 +22,19 @@ import { ModalContato } from '../../../services/modal-contato';
 export class BarraTarefas implements OnInit {
   mostrarSkils: boolean = false;
   minSkills: boolean = false;
+  validSkills: boolean = false;
 
   mostrarContato: boolean = false;
   minContato: boolean = false;
+  validContato: boolean = false;
 
   mostrarSobre: boolean = false;
   minSobre: boolean = false;
+  validSobre: boolean = false;
 
   mostrarProjects: boolean = false;
   minProjects: boolean = false;
+  validProjects: boolean = false;
 
   mostrarIcon: boolean = false;
   mostrarIniciar: boolean = false;
@@ -81,12 +85,12 @@ export class BarraTarefas implements OnInit {
   }
 
   abrirSobre() {
-    if (this.mostrarSobre && !this.valid) {
+    if (this.mostrarSobre && !this.validSobre) {
       this.modalSobre.minimizar();
-      this.valid = true;
+      this.validSobre = true;
       return;
     }
-    this.valid = false;
+    this.validSobre = false;
     if (this.mostrarSkils) {
       this.modalSkill.minimizar();
     }
@@ -100,12 +104,12 @@ export class BarraTarefas implements OnInit {
   }
 
   abrirContato() {
-    if (this.mostrarContato && !this.valid) {
+    if (this.mostrarContato && !this.validContato) {
       this.modalContato.minimizar();
-      this.valid = true;
+      this.validContato = true;
       return;
     }
-    this.valid = false;
+    this.validContato = false;
     if (this.mostrarSkils) {
       this.modalSkill.minimizar();
     }
@@ -119,12 +123,12 @@ export class BarraTarefas implements OnInit {
   }
 
   abrirSkill() {
-    if (this.mostrarSkils && !this.valid) {
+    if (this.mostrarSkils && !this.validSkills) {
       this.modalSkill.minimizar();
-      this.valid = true;
+      this.validSkills = true;
       return;
     }
-    this.valid = false;
+    this.validSkills = false;
     if (this.mostrarSobre) {
       this.modalSobre.minimizar();
     }
@@ -137,12 +141,12 @@ export class BarraTarefas implements OnInit {
     this.modalSkill.toggle();
   }
   abrirProjects() {
-    if (this.mostrarProjects && !this.valid) {
+    if (this.mostrarProjects && !this.validProjects) {
       this.modalProjects.minimizar();
-      this.valid = true;
+      this.validProjects = true;
       return;
     }
-    this.valid = false;
+    this.validProjects = false;
     if (this.mostrarSobre) {
       this.modalSobre.minimizar();
     }
