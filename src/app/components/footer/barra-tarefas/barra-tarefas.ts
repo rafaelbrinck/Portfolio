@@ -153,7 +153,7 @@ export class BarraTarefas implements OnInit {
     if (this.mostrarSkils) {
       this.modalSkill.minimizar();
     }
-    if (this.c) {
+    if (this.mostrarContato) {
       this.modalContato.minimizar();
     }
     this.modalProjects.toggle();
