@@ -40,7 +40,7 @@
 
     <!-- Icones -->
      <div class="text-white absolute right-20 flex justify-center items-center h-full p-2">
-        <div class="p-2 hover:bg-gray-600" (click)="toogleIcons()">
+        <div class="p-2 hover:bg-gray-600" (click)="toogleIcons()" [ngClass]="{'bg-gray-600': mostrarIcon}">
             <i class="bi"
             [class.bi-caret-up]="!mostrarIcon"
             [class.bi-caret-down-fill]="mostrarIcon"></i>
@@ -55,7 +55,7 @@
             <i class="bi" [ngClass]="{'bi-volume-mute': mute, 'bi-volume-up': !mute}"></i>
         </div>
      </div>
-
+  
     <!-- Relógio -->
     <app-relogio/>
     
