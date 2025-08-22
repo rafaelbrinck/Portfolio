@@ -153,18 +153,26 @@ export class BarraTarefas implements OnInit {
     if (this.mostrarSkils) {
       this.modalSkill.minimizar();
     }
-    if (this.mostrarContato) {
+    if (this.c) {
       this.modalContato.minimizar();
     }
     this.modalProjects.toggle();
   }
 
   fecharTudo() {
-    this.modalSkill.minimizar();
-    this.modalSobre.minimizar();
-    this.modalProjects.minimizar();
+    if(this.mostrarSkils){
+      this.modalSkill.minimizar();
+    }
+    if(this.mostrarSobre){
+      this.modalSobre.minimizar();
+    }
+    if(this.mostrarProjects){
+      this.modalProjects.minimizar();
+    }
+    if(this.mostrarContato){
+      this.modalContato.minimizar();
+    }
     this.modalIniciar.fechar();
-    this.modalContato.minimizar();
   }
 
   toogleIniciar() {
